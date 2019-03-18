@@ -8,19 +8,19 @@ const fetchCategories = () => {
     .then((response) => response.json());
 }
 
-// const addWine = (wineObject) => {
-//   return fetch('https://cors-anywhere.herokuapp.com/https://django-wine-api.herokuapp.com/wines/', {
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     method: 'POST',
-//     body: JSON.stringify(wineObject)
-//   })
-// }
+const addCategory = (categoryObject) => {
+  return fetch('https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/categories/', {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(categoryObject)
+  })
+}
 
 
 export default {
   fetchCategoryByID: fetchCategoryByID,
   fetchCategories: fetchCategories,
-  // addWine: addWine
+  addCategory: addCategory
 }

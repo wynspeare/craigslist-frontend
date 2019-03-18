@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CategoryList from '../components/CategoryList/CategoryList.js';
+
 import CraigslistAPI from '../api/CraigslistAPI.js';
 
 class HomePage extends Component {
@@ -25,6 +26,7 @@ class HomePage extends Component {
       <div>
         <h1> All Categories </h1>
         <CategoryList categories={this.state.categories} />
+
       </div>
     );
   }
