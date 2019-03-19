@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PostsAPI from '../../api/PostsAPI';
+import PostTeaser from '../PostTeaser/PostTeaser';
+import { Link } from 'react-router-dom';
+
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 // import CraigslistAPI from '../api/CraigslistAPI.js'
-
-
 
 class PostList extends Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class PostList extends Component {
     };
   }
 
-
   createpostList() {
     let posts = Object.values(this.state.posts)
     return posts.map(( post, index ) =>
@@ -21,9 +21,23 @@ class PostList extends Component {
         <hr/>
         <p> { post.post_title } - ${ post.price } | { post.post_city } </p>
         <p> { post.post_body }</p>
+        <Link to={`${this.props.id}/posts/${post.id}`}> Click Me </Link>
+
       </div>
       )
     }
+  
+  // createpostTeasers() {
+  //   let posts = Object.values(this.state.posts)
+  //   return posts.map(( post, index ) =>
+  //     <div key={index} className="post-text">
+  //     <PostTeaser post_title={post.post_title} />
+  //       {/* <hr/>
+  //       <p> { post.post_title } - ${ post.price } | { post.post_city } </p>
+  //       <p> { post.post_body }</p> */}
+  //     </div>
+  //     )
+  //   }
 
   componentDidMount() {
     let id = this.props.id;
@@ -31,15 +45,13 @@ class PostList extends Component {
       .then((posts) => this.setState({
         posts: posts
       }));
-
     }
 
-
   render() {
-
     return (
       <div>
         { this.createpostList() }
+        {/* <PostTeaser post_title={this.state.posts}/>  */}
       </div>
     );
   }
