@@ -18,9 +18,20 @@ const addCategory = (categoryObject) => {
   })
 }
 
+const editCategory = (categoryObject, categoryID) => {
+  return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/categories/${categoryID}/`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'PUT',
+    body: JSON.stringify(categoryObject)
+  })
+}
+
 
 export default {
   fetchCategoryByID: fetchCategoryByID,
   fetchCategories: fetchCategories,
-  addCategory: addCategory
+  addCategory: addCategory,
+  editCategory: editCategory
 }

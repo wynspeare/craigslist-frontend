@@ -29,7 +29,7 @@ componentDidMount() {
         <p>
         { this.state.postFromAPI.post_body }
         </p>
-        <img src={this.state.postFromAPI.image}></img>
+        <img src={this.state.postFromAPI.image} alt="post"></img>
 
         {/* { this.state.postFromAPI ? <Article article={ this.state.postFromAPI } /> : null } */}
       </div>

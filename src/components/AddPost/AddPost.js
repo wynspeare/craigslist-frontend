@@ -20,9 +20,6 @@ class AddPost extends Component {
       price: event.target.elements[3].value,
       image: event.target.elements[4].value,
       category: event.target.elements[5].value,
-
-
-
     }
     PostsAPI.addPost(postObject)
       .then((response) => { this.setState({ redirect: true }) })

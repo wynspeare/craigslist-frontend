@@ -9,7 +9,8 @@ const fetchPosts = (categoryID) => {
 }
 
 const addPost = (postObject) => {
-  return fetch('https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/categories/', {
+  // return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/categories/${categoryID}/posts/`, {
+  return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/posts/`, {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -18,6 +19,16 @@ const addPost = (postObject) => {
   })
 }
 
+// const addPost = (postObject) => {
+//   // return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/categories/${categoryID}/posts/`, {
+//   return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/posts/`, {
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     method: 'POST',
+//     body: JSON.stringify(postObject)
+//   })
+// }
 
 export default {
   fetchPostByID: fetchPostByID,

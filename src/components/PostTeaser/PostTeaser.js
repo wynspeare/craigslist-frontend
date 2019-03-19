@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Card, CardBody, Button, CardHeader, Col, Row } from 'reactstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class PostTeaser extends Component {
 

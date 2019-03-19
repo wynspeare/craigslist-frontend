@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostList from '../components/PostList/PostList.js';
+import { Link } from 'react-router-dom';
 
 import CraigslistAPI from '../api/CraigslistAPI.js'
 // import PostsAPI from '../api/PostsAPI.js';
@@ -32,9 +33,8 @@ class CategoryPage extends Component {
         <h2> Category: { this.state.category.category_name } </h2>
 
         { this.state.category ?  <h2> <PostList id={this.props.match.params.categoryID} /> </h2>: null }
-
-        {/* <h2> <PostList id={this.props.match.params.categoryID} /> </h2> */}
-
+        <Link to={`/categories/${this.state.category.id}/edit`}>Edit Category Name</Link>
+        
       </div>
     );
   }

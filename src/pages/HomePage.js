@@ -29,6 +29,11 @@ class HomePage extends Component {
         <h1> Caroline's Craigslist </h1>
         <CategoryList categories={this.state.categories} />
         <Link to={`/add-category`}>Add new category</Link>
+        
+        <br/>
+
+        <Link to={`/posts/new`}>Add new post</Link>
+
       </div>
     );
   }
