@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import { Link } from 'react-router-dom';
 
 class CategoryList extends Component {
+
+  createCategoryList() {
+    return this.props.categories.map(( category, index ) =>
+      <div key={index}>
+        <hr/>
+        <p>
+        <Link to={`/categories/${category.id}`}>{category.id} - {category.category_name}</Link>
+        </p>
+      </div>
+      )
+    }
+
   render() {
     return (
       <div>
-        <BootstrapTable data={this.props.categories}>
-          {/* <TableHeaderColumn isKey dataField='id'> ID </TableHeaderColumn> */}
-          <TableHeaderColumn isKey dataField='category_name'> Name </TableHeaderColumn>
-          {/* <TableHeaderColumn dataField='price'> Price </TableHeaderColumn>
-          <TableHeaderColumn dataField='varietal'> Varietal </TableHeaderColumn>
-          <TableHeaderColumn dataField='description'> Description </TableHeaderColumn> */}
-        </BootstrapTable>
+        { this.createCategoryList() }
       </div>
     );
   }

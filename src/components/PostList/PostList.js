@@ -50,7 +50,7 @@ class PostList extends Component {
   render() {
     return (
       <div>
-        { this.createpostList() }
+        { this.state.posts ? this.createpostList() : null }
         {/* <PostTeaser post_title={this.state.posts}/>  */}
       </div>
     );

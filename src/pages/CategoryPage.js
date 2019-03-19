@@ -15,11 +15,6 @@ class CategoryPage extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.categoryID;
-    // console.log(id)
-    // PostsAPI.fetchPosts(id)
-    //   .then((posts) => this.setState({
-    //     posts: posts
-    //   }));
     
     CraigslistAPI.fetchCategoryByID(id)
       .then((category) => this.setState({
@@ -35,9 +30,10 @@ class CategoryPage extends Component {
       return (
       <div>
         <h2> Category: { this.state.category.category_name } </h2>
-        {/* { this.state.posts ? <PostList posts={this.state.posts} /> : null } */}
 
-        <h2> <PostList id={this.props.match.params.categoryID} /> </h2>
+        { this.state.category ?  <h2> <PostList id={this.props.match.params.categoryID} /> </h2>: null }
+
+        {/* <h2> <PostList id={this.props.match.params.categoryID} /> </h2> */}
 
       </div>
     );

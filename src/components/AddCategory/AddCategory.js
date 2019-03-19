@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import CraigslistAPI from '../api/CraigslistAPI.js'
+import CraigslistAPI from '../../api/CraigslistAPI.js'
 import { Redirect } from 'react-router';
-class AddCategoryPage extends Component {
+
+class AddCategory extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -47,4 +48,4 @@ class AddCategoryPage extends Component {
   }
 }
 
-export default AddCategoryPage;
+export default AddCategory;

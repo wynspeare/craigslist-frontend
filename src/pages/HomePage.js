@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import CategoryList from '../components/CategoryList/CategoryList.js';
+import { Link } from 'react-router-dom';
+
 
 import CraigslistAPI from '../api/CraigslistAPI.js';
 
@@ -24,9 +26,9 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1> All Categories </h1>
+        <h1> Caroline's Craigslist </h1>
         <CategoryList categories={this.state.categories} />
-
+        <Link to={`/add-category`}>Add new category</Link>
       </div>
     );
   }

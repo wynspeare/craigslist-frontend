@@ -21,8 +21,15 @@ componentDidMount() {
     // console.log(this.state.postFromAPI)
     return (
       <div>
-        { this.state.postFromAPI.post_title }
+        <h3>{ this.state.postFromAPI.post_title } - $
+        { this.state.postFromAPI.price }</h3>
+        <h4>
+        { this.state.postFromAPI.post_city }
+        </h4>
+        <p>
         { this.state.postFromAPI.post_body }
+        </p>
+        <img src={this.state.postFromAPI.image}></img>
 
         {/* { this.state.postFromAPI ? <Article article={ this.state.postFromAPI } /> : null } */}
       </div>
