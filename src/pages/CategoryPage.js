@@ -24,7 +24,7 @@ class CategoryPage extends Component {
         category: category,
         dataLoaded: true
       }));
-    }
+  }
 
     handleDeleteButton(event) {
       event.preventDefault();
@@ -49,13 +49,11 @@ class CategoryPage extends Component {
           </button>
         </Link>
 
-        {/* <form onSubmit={this.handleSubmit.bind(this)}> */}
           <button variant="primary" type="submit" onClick={this.handleDeleteButton.bind(this)}>
             DELETE CATEGORY
           </button>
-        {/* </form> */}
 
-        <Link to={`/categories/${this.state.category.id}/posts/new`} id={name}>
+        <Link to={`/categories/${this.state.category.id}/add-post`} id={name}>
           <button >
             NEW { this.state.dataLoaded ? name.toUpperCase() : null } POST
           </button>

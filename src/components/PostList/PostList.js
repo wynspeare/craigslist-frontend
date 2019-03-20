@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import PostsAPI from '../../api/PostsAPI';
 import { Link } from 'react-router-dom';
 
-// import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-// import CategoryAPI from '../api/CategoryAPI.js'
-
 class PostList extends Component {
   constructor(props) {
     super(props);
@@ -16,27 +13,21 @@ class PostList extends Component {
   createpostList() {
     let posts = Object.values(this.state.posts)
     return posts.map(( post, index ) =>
-      <div key={index} className="post-text">
+      <div key={index} className="post">
         <hr/>
-        <p> { post.post_title } - ${ post.price } | { post.post_city } </p>
+        <Link style={{ textDecoration: "none"}} className="post-title" to={`${this.props.id}/posts/${post.id}`} > { post.post_title } - ${ post.price } | { post.post_city } </Link>
         <p> { post.post_body }</p>
-        <Link to={`${this.props.id}/posts/${post.id}`}> View More </Link>
+
+        {/* <Link style={{ float: "right"}} to={`${this.props.id}/posts/${post.id}`} >
+          <button>
+            READ MORE
+          </button>
+        </Link> */}
 
       </div>
       )
     }
   
-  // createpostTeasers() {
-  //   let posts = Object.values(this.state.posts)
-  //   return posts.map(( post, index ) =>
-  //     <div key={index} className="post-text">
-  //     <PostTeaser post_title={post.post_title} />
-  //       {/* <hr/>
-  //       <p> { post.post_title } - ${ post.price } | { post.post_city } </p>
-  //       <p> { post.post_body }</p> */}
-  //     </div>
-  //     )
-  //   }
 
   componentDidMount() {
     let id = this.props.id;
@@ -50,7 +41,6 @@ class PostList extends Component {
     return (
       <div>
         { this.state.posts ? this.createpostList() : null }
-        {/* <PostTeaser post_title={this.state.posts}/>  */}
       </div>
     );
   }

@@ -20,14 +20,19 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route exact path="/" component={HomePage} />
-            {/* <Route exact path="/categories/new" component={CategoryFormPage} /> */}
+
             <Route exact path="/categories/:categoryID" component={CategoryPage} />
             <Route exact path="/add-category/" component={CategoryFormPage} />
             <Route exact path="/categories/:categoryID/edit" component={CategoryFormPage} />
 
+            <Route exact path="/categories/:categoryID/add-post" component={PostForm} />
             <Route exact path="/categories/:categoryID/posts/:postID" component={PostPage} />
-            <Route exact path="/categories/:categoryID/posts/new" component={PostForm} />
+            <Route exact path="/categories/:categoryID/posts/:postID/edit" component={PostForm} />
 
+            <Route exact path="/add-post/" component={PostForm} />
+
+            
+            
           </div>
         </BrowserRouter>
       </div>

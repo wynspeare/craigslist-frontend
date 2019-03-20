@@ -1,37 +1,68 @@
 import React, { Component } from 'react';
 // import Article from '../components/Article/Article.js'
 import PostsAPI from '../api/PostsAPI';
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+
+
 
 
 class PostPage extends Component {
   state = {
-    postFromAPI: []
+    postFromAPI: [],
+    dataLoaded: false,
   }
 
-componentDidMount() {
-  PostsAPI.fetchPostByID(this.props.match.params.categoryID, this.props.match.params.postID).then((apiResponseJSON) => {
-    // console.log(apiResponseJSON)
-    this.setState({
-      postFromAPI: apiResponseJSON
+  componentDidMount() {
+    PostsAPI.fetchPostByID(this.props.match.params.categoryID, this.props.match.params.postID).then((apiResponseJSON) => {
+      // console.log(apiResponseJSON)
+      this.setState({
+        postFromAPI: apiResponseJSON,
+        dataLoaded: true
+      });
     });
-  });
-}
+  }
+
+  handleDeleteButton(event) {
+    event.preventDefault();
+    PostsAPI.deletePost(this.props.match.params.categoryID,this.state.postFromAPI.id)
+      .then((response) => { this.setState({ redirect: true }) })
+  }
 
   render() {
+
+    const { redirect } = this.state;
+    if (redirect) {
+    return <Redirect to = "/" />
+    }
     // console.log(this.state.postFromAPI)
+    let post = this.state.postFromAPI
     return (
       <div>
-        <h3>{ this.state.postFromAPI.post_title } - $
-        { this.state.postFromAPI.price }</h3>
+        {/* { this.state.dataLoaded ? */}
+        <div>
+        <h3>{ post.post_title } - $
+        { post.price }</h3>
         <h4>
-        { this.state.postFromAPI.post_city }
+        { post.post_city }
         </h4>
         <p>
-        { this.state.postFromAPI.post_body }
+        { post.post_body }
         </p>
-        <img src={this.state.postFromAPI.image} alt="post"></img>
+        { post.image ? <img src={post.image} alt="post"></img> : null }
+        </div>
+        {/* : null } */}
+        <br></br>
 
-        {/* { this.state.postFromAPI ? <Article article={ this.state.postFromAPI } /> : null } */}
+        <Link to={`/categories/${this.props.match.params.categoryID}/posts/${this.props.match.params.postID}/edit`} >
+          <button>
+            EDIT POST
+          </button>
+        </Link>
+
+          <button variant="primary" type="submit" onClick={this.handleDeleteButton.bind(this)}>
+            DELETE POST
+          </button>
       </div>
     );
   }

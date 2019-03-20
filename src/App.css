@@ -33,12 +33,22 @@
   }
 } */
 
-.post-text {
-  font-size: 10pt
+.post {
+  font-size: 8pt;
+  padding-top: 5px;
+}
+
+.post-title {
+  font-size: 12pt;
+  text-decoration: none !important;
+  color: #005c99;
+}
+.post-title:hover {
+  color: #00365a;
 }
 
 button {
-  /* text-decoration: none !important; */
+  text-decoration: none !important;
   color: #005c99;
   border: solid 2px #005c99;
   padding: 5px;
@@ -49,4 +59,13 @@ button:hover {
   color: white;
   background-color: #005c99;
   border: solid 2px #005c99;
+  
+}
+
+input, textarea {
+  margin: 5px 0px 10px 0px;
+  display: block;
+  width: 80%;
+  border: solid #d1d1d1 0.5px;
+  padding: 5px;
 }
