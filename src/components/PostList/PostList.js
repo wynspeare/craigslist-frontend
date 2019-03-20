@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PostsAPI from '../../api/PostsAPI';
-import PostTeaser from '../PostTeaser/PostTeaser';
 import { Link } from 'react-router-dom';
 
 // import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-// import CraigslistAPI from '../api/CraigslistAPI.js'
+// import CategoryAPI from '../api/CategoryAPI.js'
 
 class PostList extends Component {
   constructor(props) {
@@ -21,7 +20,7 @@ class PostList extends Component {
         <hr/>
         <p> { post.post_title } - ${ post.price } | { post.post_city } </p>
         <p> { post.post_body }</p>
-        <Link to={`${this.props.id}/posts/${post.id}`}> Click Me </Link>
+        <Link to={`${this.props.id}/posts/${post.id}`}> View More </Link>
 
       </div>
       )

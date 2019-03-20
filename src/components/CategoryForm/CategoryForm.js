@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CraigslistAPI from '../../api/CraigslistAPI.js'
+import CategoryAPI from '../../api/CategoryAPI.js'
 import { Redirect } from 'react-router';
 
 class CategoryForm extends Component {
@@ -18,7 +18,7 @@ class CategoryForm extends Component {
       console.log(this.props.formFields)
       let id = this.props.formFields;
     
-      CraigslistAPI.fetchCategoryByID(id)
+      CategoryAPI.fetchCategoryByID(id)
         .then((category) => this.setState({
           category: category,
           isNew: false
@@ -39,17 +39,17 @@ class CategoryForm extends Component {
   }
 
   addNewCategory(categoryObject) {
-    CraigslistAPI.addCategory(categoryObject)
+    CategoryAPI.addCategory(categoryObject)
       .then((response) => { this.setState({ redirect: true }) })
   }
 
   editCategory(categoryObject) {
-    CraigslistAPI.editCategory(categoryObject, this.state.category.id)
+    CategoryAPI.editCategory(categoryObject, this.state.category.id)
       .then((response) => { this.setState({ redirect: true }) })
   }
 
   render() {
-    console.log(this.state.isNew)
+    // console.log(this.state.isNew)
     const { redirect } = this.state;
       if (redirect) {
       return <Redirect to = "/" />
@@ -57,9 +57,10 @@ class CategoryForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>Category Name</label>
+          <label>Category Name </label>
           <input id="category_name" ref="inputValue" defaultValue={ this.state.category ? this.state.category.category_name : null }>
           </input>
+            <br />
             <br/>
           <button variant="primary" type="submit">
           { this.state.inputValue ? "EDIT" : "SUBMIT" }

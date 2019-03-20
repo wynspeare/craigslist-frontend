@@ -10,7 +10,7 @@ class PostPage extends Component {
 
 componentDidMount() {
   PostsAPI.fetchPostByID(this.props.match.params.categoryID, this.props.match.params.postID).then((apiResponseJSON) => {
-    console.log(apiResponseJSON)
+    // console.log(apiResponseJSON)
     this.setState({
       postFromAPI: apiResponseJSON
     });

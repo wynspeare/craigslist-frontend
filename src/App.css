@@ -36,3 +36,17 @@
 .post-text {
   font-size: 10pt
 }
+
+button {
+  /* text-decoration: none !important; */
+  color: #005c99;
+  border: solid 2px #005c99;
+  padding: 5px;
+  margin-right: 5px
+}
+
+button:hover {
+  color: white;
+  background-color: #005c99;
+  border: solid 2px #005c99;
+}

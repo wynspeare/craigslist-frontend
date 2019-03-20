@@ -28,10 +28,20 @@ const editCategory = (categoryObject, categoryID) => {
   })
 }
 
+const deleteCategory = (categoryID) => {
+  return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/categories/${categoryID}/`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'DELETE'
+  })
+}
+
 
 export default {
   fetchCategoryByID: fetchCategoryByID,
   fetchCategories: fetchCategories,
   addCategory: addCategory,
-  editCategory: editCategory
+  editCategory: editCategory,
+  deleteCategory: deleteCategory
 }

@@ -3,7 +3,7 @@ import CategoryList from '../components/CategoryList/CategoryList.js';
 import { Link } from 'react-router-dom';
 
 
-import CraigslistAPI from '../api/CraigslistAPI.js';
+import CategoryAPI from '../api/CategoryAPI.js';
 
 class HomePage extends Component {
   constructor(props){
@@ -14,7 +14,7 @@ class HomePage extends Component {
   }
 
   componentDidMount(){
-    CraigslistAPI.fetchCategories()
+    CategoryAPI.fetchCategories()
       .then((apiResponseJSON) => {
         this.setState({
           categories: apiResponseJSON
@@ -32,7 +32,7 @@ class HomePage extends Component {
         
         <br/>
 
-        <Link to={`/posts/new`}>Add new post</Link>
+        {/* <Link to={`/posts/new`}>Add new post</Link> */}
 
       </div>
     );

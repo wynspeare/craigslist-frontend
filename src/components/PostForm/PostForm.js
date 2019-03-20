@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import PostsAPI from '../../api/PostsAPI.js'
 import { Redirect } from 'react-router';
 
-class AddPost extends Component {
+class PostForm extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -26,6 +26,9 @@ class AddPost extends Component {
   }
 
   render() {
+
+    console.log(this.props.match.params.categoryID)
+
     const { redirect } = this.state;
       if (redirect) {
       return <Redirect to = "/" />
@@ -59,9 +62,9 @@ class AddPost extends Component {
             <Form.Control/>
           </Form.Group>
 
-          <Form.Group controlId="category">
+          <Form.Group controlId="category" >
             <Form.Label>Category Number</Form.Label>
-            <Form.Control/>
+            <Form.Control defaultValue={this.props.match.params.categoryID} />
           </Form.Group>
 
           <Button variant="primary" type="submit">
@@ -73,4 +76,4 @@ class AddPost extends Component {
   }
 }
 
-export default AddPost;
+export default PostForm;
