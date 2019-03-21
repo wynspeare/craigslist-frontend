@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PostList from '../components/PostList/PostList.js';
 import { Link } from 'react-router-dom';
-
 import CategoryAPI from '../api/CategoryAPI.js'
 import { Redirect } from 'react-router';
 
@@ -25,16 +24,13 @@ class CategoryPage extends Component {
           this.setState({
             redirect404: true
           })
-          // alert("Category not found!")
         } else {
         this.setState({
           category: response,
           dataLoaded: true,
         })
       }})
-  }
-
-
+    }
 
   handleDeleteButton(event) {
     event.preventDefault();
@@ -42,18 +38,18 @@ class CategoryPage extends Component {
       .then((response) => { this.setState({ redirect: true }) })
   }
     
-    render() {
-      let name = this.state.category.category_name
+  render() {
+    let name = this.state.category.category_name
 
-      if (this.state.redirect404) {
-        return <Redirect to={`/${this.props.match.params.categoryID}/`} />
-      }
+    if (this.state.redirect404) {
+      return <Redirect to={`/${this.props.match.params.categoryID}/`} />
+    }
 
-      const { redirect } = this.state;
-      if (redirect) {
-        return <Redirect to = "/" />
-      }
-      return (
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to = "/" />
+    }
+    return (
       <div>
         <h3> Category: { name } </h3>
         <hr/>
@@ -73,9 +69,6 @@ class CategoryPage extends Component {
             NEW { this.state.dataLoaded ? name.toUpperCase() : null } POST
           </button>
         </Link>
-
-
-
       </div>
     );
   }

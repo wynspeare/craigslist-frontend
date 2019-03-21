@@ -20,7 +20,7 @@ class CategoryForm extends Component {
         .then((category) => this.setState({
           category: category,
           isNew: false
-        }));
+      }));
     }
   }
 
@@ -47,7 +47,6 @@ class CategoryForm extends Component {
   }
 
   render() {
-    // console.log(this.state.isNew)
     const { redirect } = this.state;
       if (redirect) {
       return <Redirect to = "/" />

@@ -37,7 +37,6 @@ const deleteCategory = (categoryID) => {
   })
 }
 
-
 export default {
   fetchCategoryByID: fetchCategoryByID,
   fetchCategories: fetchCategories,

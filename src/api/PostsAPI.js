@@ -8,6 +8,11 @@ const fetchPosts = (categoryID) => {
     .then((response) => response.json());
 }
 
+const fetchAllPosts = () => {
+  return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/posts/`)
+    .then((response) => response.json());
+}
+
 const addPost = (postObject) => {
   return fetch(`https://cors-anywhere.herokuapp.com/https://craigslist-backend.herokuapp.com/posts/`, {
     headers: {
@@ -43,5 +48,6 @@ export default {
   fetchPosts: fetchPosts,
   addPost: addPost,
   editPost: editPost,
-  deletePost: deletePost
+  deletePost: deletePost,
+  fetchAllPosts: fetchAllPosts
 }

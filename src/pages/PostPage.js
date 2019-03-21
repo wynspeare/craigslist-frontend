@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import Article from '../components/Article/Article.js'
 import PostsAPI from '../api/PostsAPI';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
-
-
-
 
 class PostPage extends Component {
   state = {
@@ -23,7 +19,6 @@ class PostPage extends Component {
             redirect404: true
           })
         } else {
-          // alert("Category not found!")
         this.setState({
           postFromAPI: apiResponseJSON,
           dataLoaded: true
@@ -38,7 +33,6 @@ class PostPage extends Component {
   }
 
   render() {
-
     if (this.state.redirect404) {
       return <Redirect to={`/posts/${this.props.match.params.postID}/`} />
     }
@@ -47,11 +41,10 @@ class PostPage extends Component {
     if (redirect) {
     return <Redirect to = "/" />
     }
-    // console.log(this.state.postFromAPI)
+
     let post = this.state.postFromAPI
     return (
       <div>
-        {/* { this.state.dataLoaded ? */}
         <div>
         <h3>{ post.post_title } - $
         { post.price }</h3>
@@ -63,7 +56,6 @@ class PostPage extends Component {
         </p>
         { post.image ? <img src={post.image} alt="post"></img> : null }
         </div>
-        {/* : null } */}
         <br></br>
 
         <Link to={`/categories/${this.props.match.params.categoryID}/posts/${this.props.match.params.postID}/edit`} >

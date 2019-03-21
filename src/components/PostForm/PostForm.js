@@ -12,12 +12,10 @@ class PostForm extends Component {
       categories: {},
       categoryID : this.props.match.params.categoryID,
       editPostID: this.props.match.params.postID,
-      // category : {},
       isNew: true,
       editPostData: {}
     }
   }
-
 
   componentDidMount() {
     this.loadCategories()
@@ -30,7 +28,6 @@ class PostForm extends Component {
     })})}
   }
 
-
   loadCategories() {
     CategoryAPI.fetchCategories()
       .then((apiResponseJSON) => {
@@ -38,7 +35,6 @@ class PostForm extends Component {
           categories: apiResponseJSON
     })})
   }
-
 
   handleSubmit(event){
     event.preventDefault();
@@ -57,18 +53,15 @@ class PostForm extends Component {
     }
   }
 
-
   addNewPost(postObject) {
     PostsAPI.addPost(postObject)
       .then((response) => { this.setState({ redirect: true }) })
   }
 
-
   editPost(postObject) {
     PostsAPI.editPost(postObject, this.state.categoryID, this.state.editPostID)
       .then((response) => { this.setState({ redirect: true }) })
   }
-
 
   createCategoryDropDown() {
     let categories = Object.values(this.state.categories)
@@ -80,9 +73,7 @@ class PostForm extends Component {
       )
     }
 
-
   render() {
-    // console.log(this.state.categories)
     const { redirect } = this.state;
       if (redirect) {
       return <Redirect to = "/" />
@@ -131,14 +122,12 @@ class PostForm extends Component {
             </Form.Control>
           </Form.Group> : <Form.Group controlId="category" >
             <Form.Label style={{color: "#c1c1c1"}}>Category</Form.Label>
-            <Form.Control style={{ width: "3%", backgroundColor: "#d6d6d6", color: "#c1c1c1"}} disabled defaultValue={this.props.match.params.categoryID} />
+            <Form.Control 
+              style={{ width: "3%", backgroundColor: "#d6d6d6", color: "#c1c1c1"}} 
+              disabled 
+              defaultValue={this.props.match.params.categoryID} />
           </Form.Group>
           }
-
-          {/* <Form.Group controlId="category" >
-            <Form.Label>Category Number</Form.Label>
-            <Form.Control defaultValue={this.props.match.params.categoryID} />
-          </Form.Group> */}
 
           <Button variant="primary" type="submit">
             Submit

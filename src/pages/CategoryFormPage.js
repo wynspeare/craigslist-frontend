@@ -7,9 +7,7 @@ class CategoryFormPage extends Component {
     return (
       <div>
         { this.props.match.params.categoryID ?
-          <CategoryForm 
-            formFields={ this.props.match.params.categoryID }
-          /> :      
+          <CategoryForm formFields={ this.props.match.params.categoryID } /> :      
           <CategoryForm />
         }
       </div>
