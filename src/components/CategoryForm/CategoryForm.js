@@ -15,9 +15,7 @@ class CategoryForm extends Component {
 
   componentDidMount() {
     if (this.props.formFields) {
-      console.log(this.props.formFields)
       let id = this.props.formFields;
-    
       CategoryAPI.fetchCategoryByID(id)
         .then((category) => this.setState({
           category: category,
@@ -60,8 +58,6 @@ class CategoryForm extends Component {
           <label>Category Name </label>
           <input id="category_name" ref="inputValue" defaultValue={ this.state.category ? this.state.category.category_name : null }>
           </input>
-            <br />
-            <br/>
           <button variant="primary" type="submit">
           { this.state.inputValue ? "EDIT" : "SUBMIT" }
           </button>

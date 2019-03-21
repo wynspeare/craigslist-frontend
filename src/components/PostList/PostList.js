@@ -17,13 +17,6 @@ class PostList extends Component {
         <Link style={{ textDecoration: "none"}} className="post-title" to={`${this.props.id}/posts/${post.id}`} > { post.post_title } - ${ post.price } | { post.post_city } </Link>
         <p> { post.post_body }</p>
         <hr/>
-
-        {/* <Link style={{ float: "right"}} to={`${this.props.id}/posts/${post.id}`} >
-          <button>
-            READ MORE
-          </button>
-        </Link> */}
-
       </div>
       )
     }

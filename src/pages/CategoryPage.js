@@ -5,45 +5,59 @@ import { Link } from 'react-router-dom';
 import CategoryAPI from '../api/CategoryAPI.js'
 import { Redirect } from 'react-router';
 
-
 class CategoryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       redirect: false,
       category: {},
-      dataLoaded: false
+      categoryList: {},
+      dataLoaded: false,
+      redirect404: false
     };
   }
 
   componentDidMount() {
     let id = this.props.match.params.categoryID;
-    
     CategoryAPI.fetchCategoryByID(id)
-      .then((category) => this.setState({
-        category: category,
-        dataLoaded: true
-      }));
+      .then(response => {
+        if (response.detail === "Not found.") {
+          this.setState({
+            redirect404: true
+          })
+          alert("Category not found!")
+        } else {
+        this.setState({
+          category: response,
+          dataLoaded: true,
+        })
+      }})
   }
 
-    handleDeleteButton(event) {
-      event.preventDefault();
-      CategoryAPI.deleteCategory(this.state.category.id)
-        .then((response) => { this.setState({ redirect: true }) })
-    }
+
+
+  handleDeleteButton(event) {
+    event.preventDefault();
+    CategoryAPI.deleteCategory(this.state.category.id)
+      .then((response) => { this.setState({ redirect: true }) })
+  }
     
     render() {
       let name = this.state.category.category_name
 
+      if (this.state.redirect404) {
+        return <Redirect to={`/${this.props.match.params.categoryID}/`} />
+      }
+
       const { redirect } = this.state;
       if (redirect) {
-      return <Redirect to = "/" />
-    }
+        return <Redirect to = "/" />
+      }
       return (
       <div>
         <h3> Category: { name } </h3>
         <hr/>
-        { this.state.dataLoaded ?  <h2> <PostList id={this.props.match.params.categoryID} /> </h2>: null }
+        {  this.state.dataLoaded ?  <h2> <PostList id={this.props.match.params.categoryID} /> </h2>: null }
         <Link to={`/categories/${this.state.category.id}/edit`} >
           <button>
             EDIT CATEGORY NAME
@@ -56,7 +70,7 @@ class CategoryPage extends Component {
 
         <Link to={`/categories/${this.state.category.id}/add-post`} id={name}>
           <button >
-            NEW { this.state.dataLoaded ? name.toUpperCase() : null } POST
+            NEW { this.state.dataLoaded ? name : null } POST
           </button>
         </Link>
 
