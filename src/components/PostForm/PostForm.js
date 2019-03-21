@@ -24,29 +24,19 @@ class PostForm extends Component {
     if (this.state.editPostID) {
       PostsAPI.fetchPostByID(this.state.categoryID, this.state.editPostID)
         .then((apiResponseJSON) => {
-        // console.log(apiResponseJSON)
         this.setState({
           editPostData: apiResponseJSON,
           isNew: false
-        });
-      });
-
-    // if (this.props) {
-    //   let id = this.props.match.params.categoryID;
-    }
+    })})}
   }
-  //   CategoryAPI.fetchCategoryByID(id)
-  //     .then((category) => this.setState({
-  //       category: category,
-  //     }));
-  // }
+
 
   loadCategories() {
     CategoryAPI.fetchCategories()
       .then((apiResponseJSON) => {
         this.setState({
           categories: apiResponseJSON
-      })})
+    })})
   }
 
 
@@ -79,7 +69,20 @@ class PostForm extends Component {
       .then((response) => { this.setState({ redirect: true }) })
   }
 
+
+  createCategoryDropDown() {
+    let categories = Object.values(this.state.categories)
+
+    return categories.map(( category, index ) =>
+        <option key={category.id} value={category.id} style={{ padding: "20px"}}>
+            {category.category_name}
+        </option>
+      )
+    }
+
+
   render() {
+    // console.log(this.state.categories)
     const { redirect } = this.state;
       if (redirect) {
       return <Redirect to = "/" />
@@ -112,14 +115,30 @@ class PostForm extends Component {
           </Form.Group>
 
           <Form.Group controlId="image">
-            <Form.Label>Image</Form.Label>
+            <Form.Label >Image </Form.Label>
             <Form.Control defaultValue={ post.image ? post.image : null }/>
+            <Form.Text className="text-muted">
+              Please paste a url of an image, 800x600 or smaller. 
+            </Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="category" >
+          { this.state.isNew ?
+
+          <Form.Group controlId="category" style={{ padding: "10px 0px"}}>
+            <Form.Label>Category</Form.Label>
+            <Form.Control style={{ display: "block", width: "61%", padding: "20px"}} as="select">
+            { this.state.categories ? this.createCategoryDropDown() : null }
+            </Form.Control>
+          </Form.Group> : <Form.Group controlId="category" >
+            <Form.Label style={{color: "#c1c1c1"}}>Category</Form.Label>
+            <Form.Control style={{ width: "3%", backgroundColor: "#d6d6d6", color: "#c1c1c1"}} disabled defaultValue={this.props.match.params.categoryID} />
+          </Form.Group>
+          }
+
+          {/* <Form.Group controlId="category" >
             <Form.Label>Category Number</Form.Label>
             <Form.Control defaultValue={this.props.match.params.categoryID} />
-          </Form.Group>
+          </Form.Group> */}
 
           <Button variant="primary" type="submit">
             Submit
