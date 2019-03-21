@@ -1,33 +1,66 @@
 .App {
-  text-align: center;
+  padding: 0px 50px;
+  width: 800px
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4, h5, p {
+  color: #464646
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.post {
+  font-size: 8pt;
+  padding-top: 5px;
+}
+
+.post-title {
+  font-size: 12pt;
+  text-decoration: none !important;
+  color: #005c99;
+}
+.post-title:hover {
+  color: #00365a;
+}
+
+button {
+  font-size: 10pt;
+  text-decoration: none !important;
+  color: #005c99;
+  border: solid 2px #005c99;
+  padding: 5px;
+  margin-right: 5px
+}
+
+button:hover {
+  color: white;
+  background-color: #005c99;
+  border: solid 2px #005c99;
+  
+}
+
+input, textarea {
+  margin: 5px 0px 10px 0px;
+  display: block;
+  width: 80%;
+  border: solid #d1d1d1 0.5px;
+  padding: 5px;
+}
+
+.category-button {
+  background-color: #005c99;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.category-button:hover {
+  background-color: #004675;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav {
+  text-decoration: none !important;
+  font-size: 20pt;
+  color: #005c99;
+  display: block;
+  padding: 10px 0px;
+  margin: 0px 0px 15px 0px;
+  border-bottom: #464646 solid 2px;
 }
