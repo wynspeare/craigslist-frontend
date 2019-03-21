@@ -14,9 +14,9 @@ class PostList extends Component {
     let posts = Object.values(this.state.posts)
     return posts.map(( post, index ) =>
       <div key={index} className="post">
-        <hr/>
         <Link style={{ textDecoration: "none"}} className="post-title" to={`${this.props.id}/posts/${post.id}`} > { post.post_title } - ${ post.price } | { post.post_city } </Link>
         <p> { post.post_body }</p>
+        <hr/>
 
         {/* <Link style={{ float: "right"}} to={`${this.props.id}/posts/${post.id}`} >
           <button>

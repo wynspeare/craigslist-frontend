@@ -26,10 +26,20 @@ class HomePage extends Component {
   render() {
     return (
       <div>
-        <h1> Caroline's Craigslist </h1>
+
+        <Link to={`/add-category`}>
+          <button>
+            Add new category
+          </button>
+        </Link>
+        <Link to={`/add-post/`}>
+          <button>
+            Add new post
+          </button>
+        </Link>
+
         <CategoryList categories={this.state.categories} />
-        <Link to={`/add-category`}>Add new category</Link>
-        
+
         <br/>
 
         {/* <Link to={`/posts/new`}>Add new post</Link> */}

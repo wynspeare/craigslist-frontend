@@ -93,16 +93,12 @@ class PostForm extends Component {
         <Form  onSubmit={this.handleSubmit.bind(this)}>
           <Form.Group controlId="post_title">
             <Form.Label>Title</Form.Label>
-
             <Form.Control defaultValue={ post.post_title ? post.post_title : null }/>
-
           </Form.Group>
 
           <Form.Group controlId="post_body">
             <Form.Label>Body</Form.Label>
             <Form.Control style={{ padding: "5px 5px 20px 5px"}} defaultValue={ post.post_body ? post.post_body : null }/>
-            
-            {/* <Form.Control as="textarea" rows="4"  placeholder={ post.post_body ? post.post_body : null }/> */}
           </Form.Group>
 
           <Form.Group controlId="post_city">

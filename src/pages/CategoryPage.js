@@ -41,7 +41,8 @@ class CategoryPage extends Component {
     }
       return (
       <div>
-        <h2> Category: { name } </h2>
+        <h3> Category: { name } </h3>
+        <hr/>
         { this.state.dataLoaded ?  <h2> <PostList id={this.props.match.params.categoryID} /> </h2>: null }
         <Link to={`/categories/${this.state.category.id}/edit`} >
           <button>

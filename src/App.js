@@ -6,6 +6,8 @@ import CategoryPage from './pages/CategoryPage';
 import PostPage from './pages/PostPage';
 import CategoryFormPage from './pages/CategoryFormPage';
 import PostForm from './components/PostForm/PostForm';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -19,6 +21,8 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
+            <Link className="nav" to={`/`}>Caroline's Craigslist</Link>
+
             <Route exact path="/" component={HomePage} />
 
             <Route exact path="/categories/:categoryID" component={CategoryPage} />

@@ -6,9 +6,12 @@ class CategoryList extends Component {
   createCategoryList() {
     return this.props.categories.map(( category, index ) =>
       <div key={index}>
-        <hr/>
         <p>
-        <Link to={`/categories/${category.id}`}>{category.id} - {category.category_name}</Link>
+        <Link to={`/categories/${category.id}`}>
+          <button className="category-button">
+            {category.id} - {category.category_name}
+          </button>
+        </Link>
         </p>
       </div>
       )
