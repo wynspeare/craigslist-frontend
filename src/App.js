@@ -26,6 +26,7 @@ class App extends Component {
               <Route exact path="/categories/:categoryID/posts/:postID" component={PostPage} />
               <Route exact path="/categories/:categoryID/posts/:postID/edit" component={PostForm} />
               <Route exact path="/add-post/" component={PostForm} />
+
               <Route path="*" component={Page404} />
             </Switch>
 

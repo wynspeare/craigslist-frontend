@@ -37,7 +37,7 @@ button:hover {
   
 }
 
-input, textarea {
+input, textarea, select {
   margin: 5px 0px 10px 0px;
   display: block;
   width: 60%;
@@ -62,5 +62,12 @@ input, textarea {
   display: block;
   padding: 10px 0px;
   margin: 0px 0px 15px 0px;
-  border-bottom: #464646 solid 2px;
+  border-bottom: #005c99 solid 4px;
+}
+
+small {
+  display: block;
+  font-size: 7pt;
+  padding-bottom: 15px;
+  margin-top: -5px
 }
