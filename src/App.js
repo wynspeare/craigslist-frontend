@@ -18,23 +18,18 @@ class App extends Component {
             <Link className="nav" to={`/`}>Caroline's Craigslist</Link>
 
             <Switch>
-
               <Route exact path="/" component={HomePage} />
-
               <Route exact path="/categories/:categoryID" component={CategoryPage} />
               <Route exact path="/add-category/" component={CategoryFormPage} />
               <Route exact path="/categories/:categoryID/edit" component={CategoryFormPage} />
-
               <Route exact path="/categories/:categoryID/add-post" component={PostForm} />
               <Route exact path="/categories/:categoryID/posts/:postID" component={PostPage} />
               <Route exact path="/categories/:categoryID/posts/:postID/edit" component={PostForm} />
-
               <Route exact path="/add-post/" component={PostForm} />
+
               <Route path="*" component={Page404} />
             </Switch>
 
-            
-            
           </div>
         </BrowserRouter>
       </div>

@@ -37,13 +37,8 @@ class HomePage extends Component {
             Add new post
           </button>
         </Link>
-
         <CategoryList categories={this.state.categories} />
-
         <br/>
-
-        {/* <Link to={`/posts/new`}>Add new post</Link> */}
-
       </div>
     );
   }
