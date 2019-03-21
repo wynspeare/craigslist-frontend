@@ -54,7 +54,7 @@ class PostPage extends Component {
         <p>
         { post.post_body }
         </p>
-        { post.image ? <img src={post.image} alt="post"></img> : null }
+        { post.image ? <img src={post.image} style={{width: "60%"}} alt="post"></img> : null }
         </div>
         <br></br>
 
