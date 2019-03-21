@@ -25,7 +25,7 @@ class CategoryPage extends Component {
           this.setState({
             redirect404: true
           })
-          alert("Category not found!")
+          // alert("Category not found!")
         } else {
         this.setState({
           category: response,
@@ -70,7 +70,7 @@ class CategoryPage extends Component {
 
         <Link to={`/categories/${this.state.category.id}/add-post`} id={name}>
           <button >
-            NEW { this.state.dataLoaded ? name : null } POST
+            NEW { this.state.dataLoaded ? name.toUpperCase() : null } POST
           </button>
         </Link>
 

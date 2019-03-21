@@ -9,7 +9,7 @@ class CategoryList extends Component {
         <p>
         <Link to={`/categories/${category.id}`}>
           <button className="category-button">
-            {category.id} - {category.category_name}
+            {category.category_name}
           </button>
         </Link>
         </p>

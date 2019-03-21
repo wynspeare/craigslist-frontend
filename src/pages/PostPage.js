@@ -11,16 +11,24 @@ class PostPage extends Component {
   state = {
     postFromAPI: [],
     dataLoaded: false,
+    redirect404: false
   }
 
   componentDidMount() {
-    PostsAPI.fetchPostByID(this.props.match.params.categoryID, this.props.match.params.postID).then((apiResponseJSON) => {
-      // console.log(apiResponseJSON)
-      this.setState({
-        postFromAPI: apiResponseJSON,
-        dataLoaded: true
-      });
-    });
+    PostsAPI.fetchPostByID(this.props.match.params.categoryID, this.props.match.params.postID)
+      .then((apiResponseJSON) => {
+
+        if (apiResponseJSON.detail === "Not found.") {
+          this.setState({
+            redirect404: true
+          })
+        } else {
+          // alert("Category not found!")
+        this.setState({
+          postFromAPI: apiResponseJSON,
+          dataLoaded: true
+        });
+    }});
   }
 
   handleDeleteButton(event) {
@@ -30,6 +38,10 @@ class PostPage extends Component {
   }
 
   render() {
+
+    if (this.state.redirect404) {
+      return <Redirect to={`/posts/${this.props.match.params.postID}/`} />
+    }
 
     const { redirect } = this.state;
     if (redirect) {

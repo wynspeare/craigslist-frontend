@@ -40,7 +40,7 @@ button:hover {
 input, textarea {
   margin: 5px 0px 10px 0px;
   display: block;
-  width: 80%;
+  width: 60%;
   border: solid #d1d1d1 0.5px;
   padding: 5px;
 }
