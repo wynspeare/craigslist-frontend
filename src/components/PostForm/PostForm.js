@@ -76,8 +76,8 @@ class PostForm extends Component {
   render() {
     const { redirect } = this.state;
       if (redirect) {
-      return <Redirect to = "/" />
-    }
+        return <Redirect to = "/" />
+      }
     let post = this.state.editPostData
 
     return (
